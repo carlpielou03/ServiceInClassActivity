@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var timerTextView: TextView
     lateinit var timerBinder: TimerService.TimerBinder
     var isConnected = false
-    var curTime: Int = 0
+  //  var curTime: Int = 0
     val timeHandler = Handler(Looper.getMainLooper()) {
         timerTextView.text = it.what.toString()
-        curTime = it.what
+     //   curTime = it.what
         true
     }
 
@@ -55,15 +55,16 @@ class MainActivity : AppCompatActivity() {
                     timerBinder.pause()
                     startButton.text = "UnPause"
                 } else {
-                    if (timerBinder.paused) {
-                        Log.d("TESTING PAUSE", curTime.toString())
-                        timerBinder.start(curTime)
 
+                    if (timerBinder.paused) {
+                     //   Log.d("TESTING PAUSE", curTime.toString())
+                        //timerBinder.start(curTime)
+                        timerBinder.pause()
                     } else {
                         timerBinder.start(100)
-                        startButton.text = "Pause"
-                    }
 
+                    }
+                    startButton.text = "Pause"
                 }
             }
         }
